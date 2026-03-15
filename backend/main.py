@@ -11,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 # Configure Google Gemini SDK
-genai.configure(api_key="AIzaSyCu3mYw1q8oQHnsEQluOrRff2-6lk1nhbQ")
+genai.configure(api_key="")
 
 app = FastAPI()
 
