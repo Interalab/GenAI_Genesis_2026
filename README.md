@@ -3,8 +3,6 @@
 CodeGreen is an AI-powered sustainability analysis tool for your code. It evaluates your source code for energy efficiency and style, provides a "Green" optimized version, and calculates the real-world CO₂ impact your optimizations could have. 
 
 
-[![CodeGreen Status](https://img.shields.io/badge/CodeGreen-Efficiency%20Master-00FF41?style=for-the-badge&logo=leaf)](https://codegreen.app)
-
 ## Features 🚀
 
 - **Multi-language Support:** Analyze Python, JavaScript, C, C++, and Java code.
