@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honor Wall - CodeGreen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .badge-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem auto;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            font-size: 2.5rem;
+            border: 2px solid var(--border-color);
+            transition: all 0.5s ease;
+        }
+
+        /* Locked State */
+        .badge-card.locked {
+            filter: grayscale(100%);
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .badge-card.locked .badge-icon-wrapper {
+            background: #111;
+            color: #555;
+            border-color: #333;
+        }
+
+        .badge-card.locked .lock-overlay {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        /* Unlocked State */
+        .badge-card.unlocked .lock-overlay {
+            display: none;
+        }
+
+        .badge-card.unlocked:hover {
+            transform: translateY(-5px);
+        }
+
+        .badge-export-btn {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .badge-export-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .badge-card.unlocked .badge-export-btn {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-leaf"></i> CodeGreen
+        </div>
+        <nav>
+            <a href="index.html" class="btn btn-outline" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-arrow-left"></i> Back to Analyzer
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="min-height: auto; padding-top: 4rem;">
+            <h1>🏆 CodeGreen Honor Wall</h1>
+            <p>Optimize your code layer by layer and unlock all achievements! Click unlocked badges to export GitHub Markdown.</p>
+            
+            <div id="badge-loader" style="margin-top:2rem;">
+                <i class="fas fa-spinner fa-spin"></i> Loading achievement records...
+            </div>
+            
+            <div class="badge-grid" id="badge-grid" style="display: none;">
+                <!-- Dynamically injected via badges.js -->
+            </div>
+        </section>
+    </main>
+
+    <script src="badges.js"></script>
+</body>
+</html>
